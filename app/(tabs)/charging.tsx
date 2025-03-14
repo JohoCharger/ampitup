@@ -1,5 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import {
+    Avatar,
+    AvatarBadge,
+    AvatarFallbackText,
+    AvatarImage,
+  } from "@/components/ui/avatar"
 
 const ChargingScreen = () => {
     return (
@@ -23,11 +29,41 @@ const ChargingScreen = () => {
                     <Text style={styles.readyTextTime}>15.34</Text>
                 </View>
             </View>
+            <View style={styles.queueContainer}>
+                <Avatar size="md">
+                    <AvatarFallbackText>Jane Doe</AvatarFallbackText>
+                    <AvatarImage
+                        source={{
+                        uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                        }}
+                    />
+                    <AvatarBadge />
+                </Avatar>
+                <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
+            </View>
+            <Text style={styles.queueText}>Along with 1047 others.</Text>
         </View>
     );
 };
 const styles = StyleSheet.create({
+    queueText: {
+        marginTop: 10,
+        fontSize: 16,
+        marginLeft: 10,
+    },
+    queueContainer: {
+        alignItems: 'center',
+        marginTop: 20,
+        borderWidth: 2,
+        borderRadius: 10,
+        width: '80%',
+        borderColor: '#828282',
+        backgroundColor: '#85ffe4',
+        flexDirection: 'row',
+        padding: 10,
+    },
     readyContainer: {
+        paddingLeft: 15,
         alignItems: 'center',
         flexDirection: 'column',
         flex: 1,
@@ -53,6 +89,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRightWidth: 1,
         borderBottomColor: '#e0e0e0',
+        paddingRight: 15,
     },
     progressTextContainer: {
         flexDirection: 'row',

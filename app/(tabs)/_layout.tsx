@@ -8,6 +8,11 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -40,6 +45,51 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="charging"
+        options={{
+          title: 'Charging',
+          tabBarIcon: ({size,focused,color}) => {
+            return (
+              <Feather
+                name="battery-charging"
+                size={size}
+                color={color}
+              />
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="stats"
+        options={{
+          title: 'Stats',
+          tabBarIcon: ({size,focused,color}) => {
+            return (
+              <Ionicons
+                name="stats-chart"
+                size={size}
+                color={color}
+              />
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+      name="scanner"
+      options={{
+        title: 'Scan',
+        tabBarIcon: ({size,focused,color}) => {
+          return (
+            <AntDesign
+              name="scan1"
+              size={size}
+              color="black"
+            />
+          );
+        },
+      }}
+    />
     </Tabs>
   );
 }

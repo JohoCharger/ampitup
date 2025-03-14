@@ -24,7 +24,7 @@ const Stats = () => {
                 <Text style={styles.header}>Top 3 parkers</Text>
                 <View style={styles.statsContainer}>
                     <View style={styles.statItem}>
-                        <Text style={styles.statLabel}>1. Jane Doe: </Text>
+                        <Text style={styles.statLabel}>1. Teemu Teekkari: </Text>
                         <Text style={styles.statValue}>3mins idle</Text>
                     </View>
                     <View style={styles.statItem}>
@@ -32,7 +32,7 @@ const Stats = () => {
                         <Text style={styles.statValue}>20mins idle</Text>
                     </View>
                     <View style={styles.statItem}>
-                        <Text style={styles.statLabel}>3. Joonas: </Text>
+                        <Text style={styles.statLabel}>3. Matias Mäkilaakso: </Text>
                         <Text style={styles.statValue}>25mins idle</Text>
                     </View>
                 </View>
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 20,
 
     },
     congratulationBanner: {
@@ -55,11 +54,10 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     statsContainer: {
-        marginTop: 20,
+        marginTop: 16,
         width: '80%',
+        maxHeight: 150,
         flex: 1,
-        flexGrow: 1,
-        alignItems: 'center',
     },
     container: {
         flexGrow: 1,

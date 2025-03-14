@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import {
     Avatar,
     AvatarBadge,
@@ -33,19 +33,32 @@ const ChargingScreen = () => {
                 <Avatar size="md">
                     <AvatarFallbackText>Jane Doe</AvatarFallbackText>
                     <AvatarImage
-                        source={{
-                        uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-                        }}
+                        source={require('../../assets/images/matias.jpeg')}
                     />
                     <AvatarBadge />
                 </Avatar>
                 <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
             </View>
             <Text style={styles.queueText}>Along with 1047 others.</Text>
+            <View style={styles.imageContainer}>
+            <Image 
+                source={require('../../assets/images/electric.png')}
+                style={{ width: 300, height: 300 }}
+                resizeMode="contain"
+            />
+            </View>
         </View>
     );
 };
 const styles = StyleSheet.create({
+    imageContainer: {
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 20,
+        position: 'absolute',
+        bottom: -100,
+        zIndex: -1,
+    },
     queueText: {
         marginTop: 10,
         fontSize: 16,

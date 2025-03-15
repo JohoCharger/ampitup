@@ -4,6 +4,7 @@ import { View, Text, Button, StyleSheet, Platform } from 'react-native';
 import { CameraView, CameraType, Camera, useCameraPermissions } from 'expo-camera';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function QRScanner() {
     const [hasPermission, setHasPermission] = useState(null);

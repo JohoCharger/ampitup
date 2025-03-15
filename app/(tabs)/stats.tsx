@@ -1,43 +1,45 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
 const Stats = () => {
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.header}>Your stats this month</Text>
-            <Text style={styles.congratulationBanner}>You have been on time this month Joonas!</Text>
-            <View style={styles.statsContainer}>
-                <View style={styles.statItem}>
-                    <Text style={styles.statLabel}>Accumulated bonus: </Text>
-                    <Text style={styles.statValue}>35mins</Text>
-                </View>
-                <View style={styles.statItem}>
-                    <Text style={styles.statLabel}>Idle minutes: </Text>
-                    <Text style={styles.statValue}>56</Text>
-                </View>
-                <View style={styles.statItem}>
-                    <Text style={styles.statLabel}>EV in charge: </Text>
-                    <Text style={styles.statValue}>27hrs</Text>
-                </View>
-            </View>
-            <View style={styles.topContainer}>
-                <Text style={styles.header}>Top 3 parkers</Text>
+        <SafeAreaView>
+            <ScrollView contentContainerStyle={styles.container}>
+                <Text style={styles.header}>Your stats this month</Text>
+                <Text style={styles.congratulationBanner}>You have been on time this month Joonas!</Text>
                 <View style={styles.statsContainer}>
                     <View style={styles.statItem}>
-                        <Text style={styles.statLabel}>1. Teemu Teekkari: </Text>
-                        <Text style={styles.statValue}>3mins idle</Text>
+                        <Text style={styles.statLabel}>Accumulated bonus: </Text>
+                        <Text style={styles.statValue}>35mins</Text>
                     </View>
                     <View style={styles.statItem}>
-                        <Text style={styles.statLabel}>2. John Doe: </Text>
-                        <Text style={styles.statValue}>20mins idle</Text>
+                        <Text style={styles.statLabel}>Idle minutes: </Text>
+                        <Text style={styles.statValue}>56</Text>
                     </View>
                     <View style={styles.statItem}>
-                        <Text style={styles.statLabel}>3. Matias Mäkilaakso: </Text>
-                        <Text style={styles.statValue}>25mins idle</Text>
+                        <Text style={styles.statLabel}>EV in charge: </Text>
+                        <Text style={styles.statValue}>27hrs</Text>
                     </View>
                 </View>
-            </View>
-        </ScrollView>
+                <View style={styles.topContainer}>
+                    <Text style={styles.header}>Top 3 parkers</Text>
+                    <View style={styles.statsContainer}>
+                        <View style={styles.statItem}>
+                            <Text style={styles.statLabel}>1. Teemu Teekkari: </Text>
+                            <Text style={styles.statValue}>3mins idle</Text>
+                        </View>
+                        <View style={styles.statItem}>
+                            <Text style={styles.statLabel}>2. John Doe: </Text>
+                            <Text style={styles.statValue}>20mins idle</Text>
+                        </View>
+                        <View style={styles.statItem}>
+                            <Text style={styles.statLabel}>3. Matias Mäkilaakso: </Text>
+                            <Text style={styles.statValue}>25mins idle</Text>
+                        </View>
+                    </View>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 30,
-        fontWeight: 'bold', 
+        fontWeight: 'bold',
         alignContent: 'center',
         alignItems: 'center',
         justifyContent: 'center',

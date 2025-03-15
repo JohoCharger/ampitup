@@ -9,46 +9,48 @@ import {
 
 const ChargingScreen = () => {
     return (
-        <View style={styles.container}>
-            <View style={styles.textContainer}>
-                <Text style={styles.header}>Hello again</Text>
-                <Text style={styles.subHeader}>Joonas!</Text>
-            </View>
-            <View style={styles.firstContainer}>
-                <View style={styles.progressBarContainer}>
-                    <View style={styles.progressTextContainer}>
-                        <Text style={styles.progressText}>Charging at
-                            <Text style={styles.progressTextPercent}> 53%</Text></Text>
+        <SafeAreaView>
+            <View style={styles.container}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.header}>Hello again</Text>
+                    <Text style={styles.subHeader}>Joonas!</Text>
+                </View>
+                <View style={styles.firstContainer}>
+                    <View style={styles.progressBarContainer}>
+                        <View style={styles.progressTextContainer}>
+                            <Text style={styles.progressText}>Charging at
+                                <Text style={styles.progressTextPercent}> 53%</Text></Text>
+                        </View>
+                        <View style={styles.progressBar}>
+                            <View style={styles.progress} />
+                        </View>
                     </View>
-                    <View style={styles.progressBar}>
-                        <View style={styles.progress} />
+                    <View style={styles.readyContainer}>
+                        <Text style={styles.readyText}>Ready at</Text>
+                        <Text style={styles.readyTextTime}>15.34</Text>
                     </View>
                 </View>
-                <View style={styles.readyContainer}>
-                    <Text style={styles.readyText}>Ready at</Text>
-                    <Text style={styles.readyTextTime}>15.34</Text>
+                <View style={styles.queueContainer}>
+                    <Avatar size="md">
+                        <AvatarFallbackText>Jane Doe</AvatarFallbackText>
+                        <AvatarImage
+                            source={require('../../assets/images/matias.jpeg')}
+                        />
+                        <AvatarBadge />
+                    </Avatar>
+                    <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
                 </View>
-            </View>
-            <View style={styles.queueContainer}>
-                <Avatar size="md">
-                    <AvatarFallbackText>Jane Doe</AvatarFallbackText>
-                    <AvatarImage
-                        source={require('../../assets/images/matias.jpeg')}
+                <Text style={styles.queueText}>Along with 1047 others.</Text>
+                <Button style={styles.notify} title="I'm leaving soon (notify matias)" onPress={() => { }} />
+                <View style={styles.imageContainer}>
+                    <Image
+                        source={require('../../assets/images/electric.png')}
+                        style={{ width: 300, height: 300 }}
+                        resizeMode="contain"
                     />
-                    <AvatarBadge />
-                </Avatar>
-                <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
+                </View>
             </View>
-            <Text style={styles.queueText}>Along with 1047 others.</Text>
-            <Button style={styles.notify} title="I'm leaving soon (notify matias)" onPress={() => { }} />
-            <View style={styles.imageContainer}>
-                <Image
-                    source={require('../../assets/images/electric.png')}
-                    style={{ width: 300, height: 300 }}
-                    resizeMode="contain"
-                />
-            </View>
-        </View>
+        </SafeAreaView>
     );
 };
 const styles = StyleSheet.create({

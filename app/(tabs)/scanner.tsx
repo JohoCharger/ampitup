@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, Button, StyleSheet, Platform } from 'react-native';
 import { Camera, CameraType } from 'expo-camera';
 import { Html5QrcodeScanner } from "html5-qrcode";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function QRScanner() {
     const [hasPermission, setHasPermission] = useState(null);
@@ -49,19 +50,21 @@ export default function QRScanner() {
     }
 
     return (
-        <View style={styles.container}>
-            {Platform.OS === "web" ? (
-                <>
-                    <View id="qr-reader" style={styles.webScanner} />
-                    <Text>{qrResult}</Text>
-                </>
-            ) : (
-                <>
-                    <Camera type={CameraType.back} onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={StyleSheet.absoluteFillObject} />
-                    {scanned && <Button title="Scan Again" onPress={() => setScanned(false)} />}
-                </>
-            )}
-        </View>
+        <SafeAreaView>
+            <View style={styles.container}>
+                {Platform.OS === "web" ? (
+                    <>
+                        <View id="qr-reader" style={styles.webScanner} />
+                        <Text>{qrResult}</Text>
+                    </>
+                ) : (
+                    <>
+                        <Camera type={CameraType.back} onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={StyleSheet.absoluteFillObject} />
+                        {scanned && <Button title="Scan Again" onPress={() => setScanned(false)} />}
+                    </>
+                )}
+            </View>
+        </SafeAreaView>
     );
 }
 

@@ -69,11 +69,6 @@ export default function QRScanner() {
                 ) : (
                     <>
                         <CameraView type={facing} onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={StyleSheet.absoluteFillObject}>
-                            <View style={styles.buttonContainer}>
-                                <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-                                    <Text style={styles.text}>Flip Camera</Text>
-                                </TouchableOpacity>
-                            </View>
                         </CameraView>
                         {scanned && <Button title="Scan Again" onPress={() => setScanned(false)} />}
                     </>

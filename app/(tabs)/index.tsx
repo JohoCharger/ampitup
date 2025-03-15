@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import {
     Avatar,
     AvatarBadge,
     AvatarFallbackText,
     AvatarImage,
 } from "@/components/ui/avatar"
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ChargingScreen = () => {
     return (

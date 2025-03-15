@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Button, StyleSheet, Platform } from 'react-native';
-import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
+import { CameraView, CameraType, Camera, useCameraPermissions } from 'expo-camera';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { SafeAreaView } from 'react-native-safe-area-context';
 

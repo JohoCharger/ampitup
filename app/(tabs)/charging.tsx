@@ -5,7 +5,7 @@ import {
     AvatarBadge,
     AvatarFallbackText,
     AvatarImage,
-  } from "@/components/ui/avatar"
+} from "@/components/ui/avatar"
 
 const ChargingScreen = () => {
     return (
@@ -17,8 +17,8 @@ const ChargingScreen = () => {
             <View style={styles.firstContainer}>
                 <View style={styles.progressBarContainer}>
                     <View style={styles.progressTextContainer}>
-                        <Text style={styles.progressText}>Charging at 
-                        <Text style={styles.progressTextPercent}> 53%</Text></Text>
+                        <Text style={styles.progressText}>Charging at
+                            <Text style={styles.progressTextPercent}> 53%</Text></Text>
                     </View>
                     <View style={styles.progressBar}>
                         <View style={styles.progress} />
@@ -40,13 +40,13 @@ const ChargingScreen = () => {
                 <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
             </View>
             <Text style={styles.queueText}>Along with 1047 others.</Text>
-            <Button style={styles.notify} title="I'm leaving soon (notify matias)" onPress={() => {}} />
+            <Button style={styles.notify} title="I'm leaving soon (notify matias)" onPress={() => { }} />
             <View style={styles.imageContainer}>
-            <Image 
-                source={require('../../assets/images/electric.png')}
-                style={{ width: 300, height: 300 }}
-                resizeMode="contain"
-            />
+                <Image
+                    source={require('../../assets/images/electric.png')}
+                    style={{ width: 300, height: 300 }}
+                    resizeMode="contain"
+                />
             </View>
         </View>
     );
@@ -54,7 +54,7 @@ const ChargingScreen = () => {
 const styles = StyleSheet.create({
     notify: {
         paddingTop: 10,
-        borderRadius: 10    ,
+        borderRadius: 10,
     },
     imageContainer: {
         width: '100%',

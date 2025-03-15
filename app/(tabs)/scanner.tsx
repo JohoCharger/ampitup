@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Button, StyleSheet, Platform } from 'react-native';
-import { Camera, CameraType } from 'expo-camera';
+import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -9,6 +9,10 @@ export default function QRScanner() {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [qrResult, setQrResult] = useState("");
+    const [facing, setFacing] = useState<CameraType>('back');
+    const [permission, requestPermission] = useCameraPermissions();
+    if (!permission) { requestPermission(); }
+
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -49,6 +53,10 @@ export default function QRScanner() {
         return <Text>No access to camera</Text>;
     }
 
+    function toggleCameraFacing() {
+        setFacing(current => (current === 'back' ? 'front' : 'back'));
+    }
+
     return (
         <SafeAreaView>
             <View style={styles.container}>
@@ -59,7 +67,13 @@ export default function QRScanner() {
                     </>
                 ) : (
                     <>
-                        <Camera type={CameraType.back} onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={StyleSheet.absoluteFillObject} />
+                        <CameraView type={facing} onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={StyleSheet.absoluteFillObject}>
+                            <View style={styles.buttonContainer}>
+                                <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+                                    <Text style={styles.text}>Flip Camera</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </CameraView>
                         {scanned && <Button title="Scan Again" onPress={() => setScanned(false)} />}
                     </>
                 )}

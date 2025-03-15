@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import {
     Avatar,
     AvatarBadge,
@@ -40,6 +40,7 @@ const ChargingScreen = () => {
                 <Text style={styles.queueText}>Matias Mäkilaakso is next in line.</Text>
             </View>
             <Text style={styles.queueText}>Along with 1047 others.</Text>
+            <Button style={styles.notify} title="I'm leaving soon (notify matias)" onPress={() => {}} />
             <View style={styles.imageContainer}>
             <Image 
                 source={require('../../assets/images/electric.png')}
@@ -51,6 +52,10 @@ const ChargingScreen = () => {
     );
 };
 const styles = StyleSheet.create({
+    notify: {
+        paddingTop: 10,
+        borderRadius: 10    ,
+    },
     imageContainer: {
         width: '100%',
         alignItems: 'center',

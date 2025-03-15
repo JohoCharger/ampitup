@@ -24,7 +24,7 @@ export default function QRScanner() {
             scanner.render(
                 (data) => {
                     setQrResult(data);
-                    navigation.navigate('charging', { qrData: data });
+                    navigation.navigate('index', { qrData: data });
 
                     scanner.clear(); // Stop scanner after successful scan
                 },
@@ -39,7 +39,7 @@ export default function QRScanner() {
         setQrResult(data);
         // Navigate to the charging page with the scanned data
         console.log("vittu")
-        navigation.navigate('charging', { qrData: data });
+        navigation.navigate('index', { qrData: data });
     };
 
     if (Platform.OS !== "web" && hasPermission === null) {

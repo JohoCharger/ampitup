@@ -61,21 +61,6 @@ export default function TabLayout() {
                     },
                 }}
             />
-            <Tabs.Screen
-                name="scanner"
-                options={{
-                    title: 'Scan',
-                    tabBarIcon: ({ size, focused, color }) => {
-                        return (
-                            <AntDesign
-                                name="scan1"
-                                size={size}
-                                color="black"
-                            />
-                        );
-                    },
-                }}
-            />
         </Tabs>
     );
 }

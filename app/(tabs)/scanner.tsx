@@ -14,7 +14,7 @@ export default function QRScanner() {
         if (Platform.OS !== "web") {
             // Request camera permission on mobile
             (async () => {
-                const { status } = await Camera.requestPermissionsAsync();
+                const { status } = await Camera.requestCameraPermissionsAsync();
                 setHasPermission(status === 'granted');
             })();
         } else {

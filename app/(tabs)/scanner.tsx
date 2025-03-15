@@ -12,7 +12,21 @@ export default function QRScanner() {
     const [qrResult, setQrResult] = useState("");
     const [facing, setFacing] = useState<CameraType>('back');
     const [permission, requestPermission] = useCameraPermissions();
-    if (!permission) { requestPermission(); }
+
+    if (!permission) {
+        // Camera permissions are still loading.
+        return <View />;
+    }
+
+    if (!permission.granted) {
+        // Camera permissions are not granted yet.
+        return (
+            <SafeAreaView style={styles.container}>
+                <Text style={styles.message}>We need your permission to show the camera</Text>
+                <Button onPress={requestPermission} title="grant permission" />
+            </SafeAreaView>
+        );
+    }
 
     const navigation = useNavigation();
 
